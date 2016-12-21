@@ -1,0 +1,13 @@
+CREATE DEFINER=`root`@`%` FUNCTION `FN_COM_CODE_CONVERT_NAME`( iCodeGrupId VARCHAR(6), iCodeDetailId VARCHAR(15)) RETURNS varchar(60) CHARSET utf8
+BEGIN
+
+          DECLARE rtnVal VARCHAR(60);
+
+	      SELECT code_detail_name INTO rtnVal
+		    FROM bd_com_code_info
+		   WHERE code_grp_id = iCodeGrupId
+             AND code_detail_id = iCodeDetailId;          
+
+          RETURN rtnVal;
+
+END
